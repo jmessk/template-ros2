@@ -6,6 +6,7 @@ services:
     environment:
       ROS_DOMAIN_ID: 33
       ROS_LOCALHOST_ONLY: 0
+    network_mode: host
     volumes:
       - .:/root/ros2_ws
     command: >
