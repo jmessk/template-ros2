@@ -10,4 +10,5 @@ services:
     volumes:
       - .:/root/ros2_ws
     command: >
-      /bin/bash
+      /bin/bash -c "
+      source /opt/ros/humble/setup.bash && /bin/bash"

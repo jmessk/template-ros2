@@ -1,5 +1,4 @@
 import rclpy
-import cv2
 import os
 
 from .sample_node import SampleNode
