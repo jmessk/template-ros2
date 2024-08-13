@@ -1,4 +1,4 @@
-# ROS2 Test
+# ROS2 Template
 
 ## Init ROS2 Middleware
 
