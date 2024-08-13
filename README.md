@@ -14,8 +14,6 @@ cd ~/ros2_ws
 sudo rosdep install -i --from-path src --rosdistro humble -y
 ```
 
-## Create ROS2 Package
-
 ```bash
 pwd # ~/ros2_ws
 cd ~/ros2_ws/src
