@@ -2,7 +2,7 @@ from rclpy.node import Node
 from std_msgs.msg import String
 
 
-class SampleNode(Node):
+class SubscriberNode(Node):
     def __init__(self):
         # Initialize the node with the name "display_node"
         super().__init__("sample_node")
