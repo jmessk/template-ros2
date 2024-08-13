@@ -31,3 +31,11 @@ colcon build --symlink-install
 # you can select the package to build
 # colcon build --packages-select sample
 ```
+
+## Run ROS2 Node
+
+```bash
+pwd # ~/ros2_ws
+source ./install/setup.bash
+ros2 run sample sample_node
+```
