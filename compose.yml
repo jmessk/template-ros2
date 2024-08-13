@@ -1,0 +1,10 @@
+services:
+  example:
+    build: .
+    tty: true
+    privileged: true
+    environment:
+      ROS_DOMAIN_ID: 33
+      ROS_LOCALHOST_ONLY: 0
+    command: >
+      /bin/bash
