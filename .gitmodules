@@ -1,0 +1,3 @@
+[submodule "simple_robot_operator"]
+    path = src/simple_robot_operator
+    url = https://github.com/CREST-applications/simple-robot-operator.git
