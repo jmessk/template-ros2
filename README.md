@@ -17,14 +17,14 @@ sudo rosdep install -i --from-path src --rosdistro humble -y
 ```bash
 pwd # ~/ros2_ws
 cd ~/ros2_ws/src
-ros2 pkg create --build-type ament_python sample
+ros2 pkg create <package_name> --build-type ament_python
 ```
 
 ## Build ROS2 Package
 
 ```bash
 pwd # ~/ros2_ws
-colcon build --symlink-install
+colcon build
 # or 
 # colcon build --symlink-install
 
@@ -37,11 +37,5 @@ colcon build --symlink-install
 ```bash
 pwd # ~/ros2_ws
 source ./install/setup.bash
-ros2 run sample sample_node
-```
-
-## Bring up
-
-```bash
-ros2 launch turtlebot3_bringup robot.launch.py
+ros2 run example pub
 ```
