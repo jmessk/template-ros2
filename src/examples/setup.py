@@ -1,6 +1,6 @@
 from setuptools import find_packages, setup
 
-package_name = 'sample_publisher'
+package_name = 'examples'
 
 setup(
     name=package_name,
@@ -20,7 +20,8 @@ setup(
     tests_require=['pytest'],
     entry_points={
         'console_scripts': [
-            "sample = sample_publisher.entrypoint:main",
+            'pub = examples.pub:main',
+            'sub = examples.sub:main',
         ],
     },
 )
