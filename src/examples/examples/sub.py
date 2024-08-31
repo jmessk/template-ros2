@@ -5,10 +5,8 @@ from std_msgs.msg import String
 
 class SubNode(Node):
     def __init__(self):
-        # Initialize the node with the name "display_node"
         super().__init__("sub_node")
 
-        # Create a subscription to the topic "/sample" with the message type String
         self.create_subscription(String, "/example", self.__callback, 10)
 
     def __callback(self, message: String):
