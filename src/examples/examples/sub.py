@@ -10,7 +10,7 @@ class SubNode(Node):
         self.create_subscription(String, "/example", self.__callback, 10)
 
     def __callback(self, message: String):
-        self.get_logger().info(f"SubNode: recieved from `/example`: {message.data}")
+        self.get_logger().info(f"Recieved from `/example`: {message.data}")
 
 
 def main():
