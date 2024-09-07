@@ -14,7 +14,7 @@ class PubNode(Node):
 
     def __callback(self):
         self.__pub.publish(String(data=f"counter=={self.__counter}"))
-        self.get_logger().info(f"PubNode: published to `/example`: {self.__counter}")
+        self.get_logger().info(f"Published to `/example`: {self.__counter}")
 
         self.__counter += 1
 
