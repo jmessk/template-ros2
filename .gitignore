@@ -1,5 +1,4 @@
 build/
 install/
 log/
-src/test
-pycache/
+__pycache__/
