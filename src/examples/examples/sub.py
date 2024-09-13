@@ -5,7 +5,7 @@ from std_msgs.msg import String
 
 class SubNode(Node):
     def __init__(self):
-        super().__init__("sub_node")
+        super().__init__("example_sub")
 
         self.create_subscription(String, "/example", self.__callback, 10)
 
