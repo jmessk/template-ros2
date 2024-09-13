@@ -2,13 +2,10 @@ services:
   example:
     build: .
     tty: true
-    privileged: true
-    environment:
-      ROS_DOMAIN_ID: 33
-      FASTRTPS_DEFAULT_PROFILES_FILE: /tmp/fastrtps-profile.xml
     network_mode: host
+    environment:
+      ROS_DOMAIN_ID: 10
+      FASTRTPS_DEFAULT_PROFILES_FILE: /tmp/fastrtps-profile.xml
     volumes:
       - .:/root/ros2_ws
       - ./fastrtps-profile.xml:/tmp/fastrtps-profile.xml
-    command: >
-      /bin/bash
