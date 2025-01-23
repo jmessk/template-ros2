@@ -4,8 +4,12 @@ services:
     tty: true
     network_mode: host
     environment:
-      ROS_DOMAIN_ID: 10
-      FASTRTPS_DEFAULT_PROFILES_FILE: /tmp/fastrtps-profile.xml
+      - ROS_DOMAIN_ID=10
+      # - DISPLAY=$DISPLAY
+      # - FASTRTPS_DEFAULT_PROFILES_FILE=/tmp/fastrtps-profile.xml # for FastRTPS
     volumes:
       - .:/root/ros2_ws
-      - ./fastrtps-profile.xml:/tmp/fastrtps-profile.xml
+      # - ./fastrtps-profile.xml:/tmp/fastrtps-profile.xml
+      # - /tmp/.X11-unix:/tmp/.X11-unix # for GUI
+      # - /var/run/dbus:/var/run/dbus # for mDNS
+      # - /var/run/avahi-daemon/socket:/var/run/avahi-daemon/socket # for mDNS
