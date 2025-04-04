@@ -1,6 +1,11 @@
 services:
-  example:
-    build: .
+  dev:
+    build:
+      context: .
+      dockerfile: ./Dockerfile.dev
+      args:
+        - UID=1000
+        - GIO=1000
     tty: true
     network_mode: host
     environment:
@@ -8,7 +13,7 @@ services:
       # - DISPLAY=$DISPLAY
       # - FASTRTPS_DEFAULT_PROFILES_FILE=/tmp/fastrtps-profile.xml # for FastRTPS
     volumes:
-      - .:/root/ros2_ws
+      - .:/user/ros2_ws
       # - ./fastrtps-profile.xml:/tmp/fastrtps-profile.xml
       # - /tmp/.X11-unix:/tmp/.X11-unix # for GUI
       # - /var/run/dbus:/var/run/dbus # for mDNS
