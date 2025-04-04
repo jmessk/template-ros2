@@ -5,7 +5,7 @@ services:
       dockerfile: ./Dockerfile
       args:
         - UID=1000
-        - GIO=1000
+        - GID=1000
     tty: true
     network_mode: host
     environment:
