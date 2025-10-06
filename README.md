@@ -1,41 +1,54 @@
 # ROS2 Template
 
-## Init ROS2 Middleware
+## Getting Started
 
-```bash
-source /opt/ros/humble/setup.bash
-```
+You can set up a ROS2 development environment by following the steps below.
 
-## Create ROS2 Workspace
+1. **Start the development container**
 
-```bash
-mkdir -p ~/ros2_ws/src
-cd ~/ros2_ws
-sudo rosdep install -i --from-path src --rosdistro humble -y
-```
+    ```bash
+    docker compose up
+    # or run in detached mode
+    # docker compose up -d
+    ```
 
-```bash
-pwd # ~/ros2_ws
-cd ~/ros2_ws/src
-ros2 pkg create <package_name> --build-type ament_python
-```
+2. **Access the container (bash)**
 
-## Build ROS2 Package
+    If you used `-d` option in step 1, run this in other terminal.
 
-```bash
-pwd # ~/ros2_ws
-colcon build
-# or 
-# colcon build --symlink-install
+    ```bash
+    docker compose exec dev bash
+    ```
 
-# you can select the package to build
-# colcon build --packages-select sample
-```
+3. **(optional) Run example**
 
-## Run ROS2 Node
+    publisher:
 
-```bash
-pwd # ~/ros2_ws
-source ./install/setup.bash
-ros2 run example pub
-```
+    ```bash
+    cd ~/ros2_ws
+    colcon build
+    source install/setup.bash
+
+    ros2 run examples pub
+    ```
+
+    subscriber:
+
+    Please run in another terminal.
+
+    ```bash
+    source install/setup.bash
+    ros2 run examples sub
+    ```
+
+## Configuration
+
+- `compose.yml`
+
+  - **`UID` and `GID` in build args**: To avoid permission issues with files and directories, it is recommended to set the user inside the container to have the same user ID and group ID as the host.
+
+  - **`ROS_DOMAIN_ID` in environment variables**: Set this to your desired ROS2 domain ID.
+
+  - **GUI**: To enable GUI applications, `/tmp/.X11-unix` is mounted and `DISPLAY` environment variable is set. You may need to allow the container to access your X server by running `xhost +local:docker` on the host.
+
+  - **mDNS**: If you want to use mDNS (`*.local`), `/var/run/dbus` and `/var/run/avahi-daemon/socket` are mounted. Make sure that the Avahi daemon is running on the host.

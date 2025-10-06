@@ -2,19 +2,20 @@ services:
   dev:
     build:
       context: .
-      dockerfile: ./Dockerfile
+      dockerfile: ./Dockerfile.dev
       args:
         - UID=1000
         - GID=1000
-    tty: true
-    network_mode: host
     environment:
       - ROS_DOMAIN_ID=10
-      # - DISPLAY=$DISPLAY
-      # - FASTRTPS_DEFAULT_PROFILES_FILE=/tmp/fastrtps-profile.xml # for FastRTPS
+      # - DISPLAY=$DISPLAY # for GUI
+      # - FASTRTPS_DEFAULT_PROFILES_FILE=/tmp/fastrtps-profile.xml # for FastRTPS. depricated.
     volumes:
-      - .:/user/ros2_ws
-      # - ./fastrtps-profile.xml:/tmp/fastrtps-profile.xml
+      - .:/home/user/ros2_ws
+      # - ./fastrtps-profile.xml:/tmp/fastrtps-profile.xml # for FastRTPS. depricated.
       # - /tmp/.X11-unix:/tmp/.X11-unix # for GUI
       # - /var/run/dbus:/var/run/dbus # for mDNS
       # - /var/run/avahi-daemon/socket:/var/run/avahi-daemon/socket # for mDNS
+    network_mode: host
+    ipc: host
+    tty: true
