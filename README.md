@@ -7,9 +7,7 @@ You can set up a ROS2 development environment by following the steps below.
 1. **Start the development container**
 
     ```bash
-    docker compose up
-    # or run in detached mode
-    # docker compose up -d
+    docker compose up -d
     ```
 
 2. **Access the container (bash)**
