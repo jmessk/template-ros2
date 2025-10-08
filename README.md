@@ -43,14 +43,14 @@ You can set up a ROS2 development environment by following the steps below.
 
 - `compose.yml`
 
-  - **`UID` and `GID` in build args**: To avoid permission issues with files and directories, it is recommended to set the user inside the container to have the same user ID and group ID as the host.
+    - **`UID` and `GID` in build args**: To avoid permission issues with files and directories, it is recommended to set the user inside the container to have the same user ID and group ID as the host.
 
-  - **`ROS_DOMAIN_ID` in environment variables**: Set this to your desired ROS2 domain ID.
+    - **`ROS_DOMAIN_ID` in environment variables**: Set this to your desired ROS2 domain ID.
 
-  - **GUI**: To enable GUI applications, `/tmp/.X11-unix` is mounted and `DISPLAY` environment variable is set. You may need to allow the container to access your X server by running `xhost +local` on the host.
+    - **GUI**: To enable GUI applications, `/tmp/.X11-unix` is mounted and `DISPLAY` environment variable is set. You may need to allow the container to access your X server by running `xhost +local` on the host.
 
-  To show GUI apps over SSH (with X11 forwarding), also mount your Xauthority file (`~/.Xauthority`) to the container. This allows GUI applications inside the container to connect to your forwarded X server. Use options `ssh -X` or `ssh -Y`.
+      To show GUI apps over SSH (with X11 forwarding), also mount your Xauthority file (`~/.Xauthority`) to the container. This allows GUI applications inside the container to connect to your forwarded X server. Use options `ssh -X` or `ssh -Y`.
 
-  - **Devices**: Map host device nodes to access hardware from the container. Example: `/dev/video0:/dev/video0` for a webcam. Ensure your user has permission for the device (e.g., belongs to the `video` group).
+    - **Devices**: Map host device nodes to access hardware from the container. Example: `/dev/video0:/dev/video0` for a webcam. Ensure your user has permission for the device (e.g., belongs to the `video` group).
 
-  - **mDNS**: If you want to use mDNS (`*.local:`), `/var/run/dbus` and `/var/run/avahi-daemon/socket` are mounted. Make sure that the Avahi daemon is running on the host.
+    - **mDNS**: If you want to use mDNS (`*.local:`), `/var/run/dbus` and `/var/run/avahi-daemon/socket` are mounted. Make sure that the Avahi daemon is running on the host.
