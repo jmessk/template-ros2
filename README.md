@@ -29,7 +29,7 @@ You can set up a ROS2 development environment by following the steps below.
    colcon build
    source install/setup.bash
 
-   ros2 run examples pub
+   ros2 run example pub
    ```
 
    subscriber:
@@ -38,7 +38,7 @@ You can set up a ROS2 development environment by following the steps below.
 
    ```bash
    source install/setup.bash
-   ros2 run examples sub
+   ros2 run example sub
    ```
 
 ## Configuration
