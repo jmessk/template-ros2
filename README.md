@@ -51,4 +51,6 @@ You can set up a ROS2 development environment by following the steps below.
 
   - **GUI**: To enable GUI applications, `/tmp/.X11-unix` is mounted and `DISPLAY` environment variable is set. You may need to allow the container to access your X server by running `xhost +local` on the host.
 
-  - **mDNS**: If you want to use mDNS (`*.local`), `/var/run/dbus` and `/var/run/avahi-daemon/socket` are mounted. Make sure that the Avahi daemon is running on the host.
+  To show GUI apps over SSH (with X11 forwarding), also mount your Xauthority file (`~/.Xauthority`) to the container. This allows GUI applications inside the container to connect to your forwarded X server. Use options `ssh -X` or `ssh -Y`.
+
+  - **mDNS**: If you want to use mDNS (`*.local:`), `/var/run/dbus` and `/var/run/avahi-daemon/socket` are mounted. Make sure that the Avahi daemon is running on the host.
