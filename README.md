@@ -12,7 +12,7 @@ You can set up a ROS2 development environment by following the steps below.
 
 2. **Access the container (bash)**
 
-    If you used `-d` option in step 1, run this in other terminal.
+    If you did not use `-d` option in step 1, run this in other terminal.
 
     ```bash
     docker compose exec dev bash
