@@ -6,8 +6,16 @@ FROM ros:${ROS_DISTRO}-ros-base
 ARG UID
 ARG GID
 
-RUN groupadd -g ${GID} user && \
-    useradd -m -s /bin/bash -u ${UID} -g ${GID} user
+# This is needed for jazzy (Ubuntu 24.04).
+# Ubuntu 24.04 base image includes a default user 'ubuntu' (uid: 1000, gid: 1000).
+# Delete it to avoid conflicts with the user we are creating.
+# check the following discussions:
+# https://github.com/osrf/docker_images/issues/795
+# https://askubuntu.com/questions/1513927/ubuntu-24-04-docker-images-now-includes-user-ubuntu-with-uid-gid-1000
+RUN if [ "${ROS_DISTRO}" = "jazzy" ]; then userdel ubuntu -r; fi
+
+RUN groupadd user --gid ${GID} && \
+    useradd user --uid ${UID} --gid ${GID} --create-home --shell /bin/bash
 
 # When using the shell in a development environment, do not execute it manually.
 # Not needed in production (already setup in the base image).
