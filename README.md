@@ -53,4 +53,6 @@ You can set up a ROS2 development environment by following the steps below.
 
   To show GUI apps over SSH (with X11 forwarding), also mount your Xauthority file (`~/.Xauthority`) to the container. This allows GUI applications inside the container to connect to your forwarded X server. Use options `ssh -X` or `ssh -Y`.
 
+  - **Devices**: Map host device nodes to access hardware from the container. Example: `/dev/video0:/dev/video0` for a webcam. Ensure your user has permission for the device (e.g., belongs to the `video` group).
+
   - **mDNS**: If you want to use mDNS (`*.local:`), `/var/run/dbus` and `/var/run/avahi-daemon/socket` are mounted. Make sure that the Avahi daemon is running on the host.

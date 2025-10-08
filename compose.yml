@@ -15,13 +15,16 @@ services:
 
       # for GUI:
       # - /tmp/.X11-unix:/tmp/.X11-unix
-      # - ~/.Xauthority:/home/user/.Xauthority # (over SSH)
+      # - ~/.Xauthority:/home/user/.Xauthority # (over SSH x11 forwarding)
 
       # for mDNS:
       # - /var/run/dbus:/var/run/dbus
       # - /var/run/avahi-daemon/socket:/var/run/avahi-daemon/socket
 
       # - ./fastrtps-profile.xml:/tmp/fastrtps-profile.xml # for FastRTPS. depricated.
+    
+    # devices:
+      # - /dev/video0:/dev/video0 # for webcam
 
     network_mode: host
     ipc: host

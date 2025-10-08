@@ -11,7 +11,7 @@ RUN groupadd -g ${GID} user && \
 
 # When using the shell in a development environment, do not execute it manually.
 # Not needed in production (already setup in the base image).
-RUN echo "source /opt/ros/humble/setup.bash" >> /home/user/.bashrc
+RUN echo "source /opt/ros/${ROS_DISTRO}/setup.bash" >> /home/user/.bashrc
 
 USER user
 WORKDIR /home/user/ros2_ws/
