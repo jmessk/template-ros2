@@ -1,0 +1,17 @@
+{
+  "name": "ROS 2 Dev Container",
+  "dockerComposeFile": "compose.yml",
+  "service": "dev",
+  "remoteUser": "ubuntu",
+  "workspaceFolder": "/workspace",
+  "updateRemoteUserUID": true,
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "ms-python.python",
+        "ms-python.vscode-pylance",
+        "charliermarsh.ruff"
+      ]
+    }
+  }
+}

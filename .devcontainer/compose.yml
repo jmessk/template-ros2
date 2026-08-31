@@ -1,0 +1,11 @@
+services:
+  dev:
+    build:
+      context: ..
+      dockerfile: .devcontainer/Dockerfile
+      args:
+        - ROS_DISTRO=jazzy
+    environment:
+      - ROS_DOMAIN_ID=100
+    volumes:
+      - ..:/workspace

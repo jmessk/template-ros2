@@ -1,31 +1,32 @@
+x-build_args: &common_build_args
+  ROS_DISTRO: jazzy
+
+x-environment: &common_environment
+  ROS_DOMAIN_ID: 100
+
 services:
-  dev:
+  example_talker:
     build:
       context: .
-      dockerfile: ./Dockerfile.dev
       args:
-        - UID=1000
-        - GID=1000
-    environment:
-      - ROS_DOMAIN_ID=10
-      # - DISPLAY=$DISPLAY # for GUI
-      # - FASTRTPS_DEFAULT_PROFILES_FILE=/tmp/fastrtps-profile.xml # for FastRTPS. depricated.
-    volumes:
-      - .:/home/user/ros2_ws
-
-      # for GUI:
-      # - /tmp/.X11-unix:/tmp/.X11-unix
-      # - ~/.Xauthority:/home/user/.Xauthority # (over SSH x11 forwarding)
-
-      # for mDNS:
-      # - /var/run/dbus:/var/run/dbus
-      # - /var/run/avahi-daemon/socket:/var/run/avahi-daemon/socket
-
-      # - ./fastrtps-profile.xml:/tmp/fastrtps-profile.xml # for FastRTPS. depricated.
-    
-    # devices:
-      # - /dev/video0:/dev/video0 # for webcam
-
+        <<: *common_build_args
+        PACKAGE_NAME: example
+      target: example_talker
     network_mode: host
     ipc: host
-    tty: true
+    environment:
+      <<: *common_environment
+    command: /bin/bash -c 'source /workspace/install/setup.bash && exec ros2 run example talker'
+
+  example_listener:
+    build:
+      context: .
+      args:
+        <<: *common_build_args
+        PACKAGE_NAME: example
+      target: example_listener
+    network_mode: host
+    ipc: host
+    environment:
+      <<: *common_environment
+    command: /bin/bash -c 'source /workspace/install/setup.bash && exec ros2 run example listener'

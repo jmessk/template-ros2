@@ -3,14 +3,12 @@
 <package format="3">
   <name>example</name>
   <version>0.0.0</version>
-  <description>TODO: Package description</description>
-  <maintainer email="jme.co.jp@gmail.com">root</maintainer>
-  <license>TODO: License declaration</license>
+  <description>Minimal ROS 2 publisher and subscriber example.</description>
+  <maintainer email="dev@jmessk.net">root</maintainer>
+  <license>MIT</license>
 
-  <test_depend>ament_copyright</test_depend>
-  <test_depend>ament_flake8</test_depend>
-  <test_depend>ament_pep257</test_depend>
-  <test_depend>python3-pytest</test_depend>
+  <depend>rclpy</depend>
+  <depend>std_msgs</depend>
 
   <export>
     <build_type>ament_python</build_type>
