@@ -1,32 +1,24 @@
-x-build_args: &common_build_args
-  ROS_DISTRO: jazzy
-
-x-environment: &common_environment
-  ROS_DOMAIN_ID: 100
-
 services:
   example_talker:
     build:
       context: .
       args:
-        <<: *common_build_args
         PACKAGE_NAME: example
       target: example_talker
     network_mode: host
     ipc: host
     environment:
-      <<: *common_environment
+      - ROS_DOMAIN_ID=100
     command: /bin/bash -c 'source /workspace/install/setup.bash && exec ros2 run example talker'
 
   example_listener:
     build:
       context: .
       args:
-        <<: *common_build_args
         PACKAGE_NAME: example
       target: example_listener
     network_mode: host
     ipc: host
     environment:
-      <<: *common_environment
+      - ROS_DOMAIN_ID=100
     command: /bin/bash -c 'source /workspace/install/setup.bash && exec ros2 run example listener'
